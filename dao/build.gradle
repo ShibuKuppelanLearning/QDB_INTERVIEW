@@ -1,0 +1,10 @@
+group = 'com.bank.dms.dao'
+
+apply plugin: "io.spring.dependency-management"
+
+dependencies{
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa:2.6.4'
+	implementation 'oracle:ojdbc6:11.2.0.3'		
+	implementation project(':core-vo')	
+	implementation project(':util')
+}

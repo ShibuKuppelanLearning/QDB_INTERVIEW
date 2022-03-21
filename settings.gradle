@@ -1,0 +1,7 @@
+include ':api'
+include ':util'
+include ':core-vo'
+include ':dao'
+include ':microservices:document-service'
+include ':microservices:customer-service'
+include ':microservices:post-comment-service'

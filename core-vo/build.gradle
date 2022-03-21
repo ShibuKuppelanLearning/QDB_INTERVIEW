@@ -1,0 +1,3 @@
+group = 'com.bank.dms.core-vo'
+
+apply plugin: "io.spring.dependency-management"
