@@ -14,7 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "USER_POST")
+@Entity(name = "DMS_USER_POST")
 public class Post implements Serializable {
 
 	/**
@@ -24,8 +24,8 @@ public class Post implements Serializable {
 
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_POST_SEQ")
-	@SequenceGenerator(sequenceName = "USER_POST_SEQ", allocationSize = 1, name = "USER_POST_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DMS_USER_POST_SEQ")
+	@SequenceGenerator(sequenceName = "DMS_USER_POST_SEQ", allocationSize = 1, name = "DMS_USER_POST_SEQ")
 	private Long id;
 
 	@Column(name = "DESCRIPTION")

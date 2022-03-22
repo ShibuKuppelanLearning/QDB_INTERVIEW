@@ -21,6 +21,21 @@ public class Post implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Post(String description, User createdBy, Document document) {
+		super();
+		this.description = description;
+		this.createdBy = createdBy;
+		this.document = document;
+	}
+
+	public Post(Long id, String description, User createdBy, Document document) {
+		super();
+		this.id = id;
+		this.description = description;
+		this.createdBy = createdBy;
+		this.document = document;
+	}
+
 	public Long getId() {
 		return id;
 	}

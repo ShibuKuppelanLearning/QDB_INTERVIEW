@@ -9,7 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "CUSTOMER")
+@Entity(name = "DMS_CUSTOMER")
 public class Customer implements Serializable {
 
 	/**
@@ -19,8 +19,8 @@ public class Customer implements Serializable {
 
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "CUST_SEQ")
-	@SequenceGenerator(sequenceName = "CUST_SEQ", allocationSize = 1, name = "CUST_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DMS_CUST_SEQ")
+	@SequenceGenerator(sequenceName = "DMS_CUST_SEQ", allocationSize = 1, name = "DMS_CUST_SEQ")
 	private Long id;
 
 	@Column(name = "FIRST_NAME")

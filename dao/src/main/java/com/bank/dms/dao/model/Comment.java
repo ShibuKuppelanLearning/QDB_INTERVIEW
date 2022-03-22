@@ -13,7 +13,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "USER_COMMENT")
+@Entity(name = "DMS_USER_COMMENT")
 public class Comment implements Serializable {
 
 	/**
@@ -23,8 +23,8 @@ public class Comment implements Serializable {
 
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "USER_COMMENT_SEQ")
-	@SequenceGenerator(sequenceName = "USER_COMMENT_SEQ", allocationSize = 1, name = "USER_COMMENT_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DMS_USER_COMMENT_SEQ")
+	@SequenceGenerator(sequenceName = "DMS_USER_COMMENT_SEQ", allocationSize = 1, name = "DMS_USER_COMMENT_SEQ")
 	private Long id;
 
 	@Column(name = "CONTENT")

@@ -1,6 +1,7 @@
 package com.bank.dms.dao.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,9 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
-@Entity(name = "DOCUMENT")
+@Entity(name = "DMS_CUST_DOCUMENT")
 public class Document implements Serializable {
 
 	/**
@@ -22,8 +24,8 @@ public class Document implements Serializable {
 	private static final long serialVersionUID = -1058124513231986477L;
 	@Id
 	@Column(name = "ID")
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DOC_SEQ")
-	@SequenceGenerator(sequenceName = "DOC_SEQ", allocationSize = 1, name = "DOC_SEQ")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "DMS_CUST_DOC_SEQ")
+	@SequenceGenerator(sequenceName = "DMS_CUST_DOC_SEQ", allocationSize = 1, name = "DMS_CUST_DOC_SEQ")
 	private Long id;
 
 	@Column(name = "NAME")
@@ -41,6 +43,10 @@ public class Document implements Serializable {
 	@ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
 	private Customer customer;
+
+	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "POST_ID", referencedColumnName = "ID")
+	private List<Post> post;
 
 	public Document() {
 		// TODO Auto-generated constructor stub
@@ -110,6 +116,14 @@ public class Document implements Serializable {
 
 	public void setCustomer(Customer customer) {
 		this.customer = customer;
+	}
+
+	public List<Post> getPost() {
+		return post;
+	}
+
+	public void setPost(List<Post> post) {
+		this.post = post;
 	}
 
 	@Override

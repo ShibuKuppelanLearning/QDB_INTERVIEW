@@ -11,11 +11,13 @@ import org.hibernate.exception.JDBCConnectionException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.bank.dms.core.vo.User;
 import com.bank.dms.dao.repository.UserRepository;
 import com.bank.dms.util.exception.DataSaveException;
 
+@Component
 public class UserDataServiceImpl implements UserDataService {
 
 	private static final Logger logger = LoggerFactory.getLogger(UserDataServiceImpl.class);
