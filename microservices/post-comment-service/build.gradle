@@ -4,13 +4,14 @@ apply plugin : 'org.springframework.boot'
 apply plugin : 'io.spring.dependency-management'
 
 bootRun {
-  jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=3333"]
+  //jvmArgs=["-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=3333"]
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'	
 	implementation 'org.springframework.boot:spring-boot-starter-actuator'	
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springdoc:springdoc-openapi-ui:1.5.10'
 	
 	implementation 'org.apache.commons:commons-lang3:3.11'	
 		
@@ -18,6 +19,8 @@ dependencies {
 	implementation project(':dao')
 	implementation project(':core-vo')
 	implementation project(':util')
+	
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {

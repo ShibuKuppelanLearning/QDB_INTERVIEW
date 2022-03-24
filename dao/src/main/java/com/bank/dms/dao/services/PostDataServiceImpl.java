@@ -48,6 +48,8 @@ public class PostDataServiceImpl implements PostDataService {
 			postModel = postRepository.save(postModel);
 			if (postModel != null) {
 				postId = postModel.getId();
+				document.setPost(postModel);
+				documentRepository.save(document);
 			}
 		}
 		return postId;
@@ -92,5 +94,29 @@ public class PostDataServiceImpl implements PostDataService {
 			}
 		}
 		return posts;
+	}
+
+	@Override
+	public Post fetchPostsByDocumentId(Long documentId) {
+		Post post = null;
+		if (documentId != null && documentId.longValue() > 0) {
+			Document documentModel = documentRepository.findById(documentId).orElse(null);
+			if (documentModel != null) {
+				com.bank.dms.dao.model.Post postModel = documentModel.getPost();
+				if (postModel != null) {
+					User createdByModel = postModel.getCreatedBy();
+					com.bank.dms.core.vo.User createdBy = null;
+					if (postModel.getCreatedBy() != null) {
+						createdBy = new com.bank.dms.core.vo.User(createdByModel.getId(), createdByModel.getFirstName(),
+								createdByModel.getLastName());
+					}
+					com.bank.dms.core.vo.Document document = new com.bank.dms.core.vo.Document(documentModel.getId(),
+							documentModel.getName(), documentModel.getDescription(), documentModel.getPath(),
+							documentModel.getContent());
+					post = new Post(postModel.getId(), postModel.getDescription(), createdBy, document);
+				}
+			}
+		}
+		return post;
 	}
 }

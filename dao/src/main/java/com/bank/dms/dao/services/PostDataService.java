@@ -11,4 +11,6 @@ public interface PostDataService {
 	Post fetchPostById(Long userId);
 	
 	List<Post> fetchPostsByUserId(Long userId);
+	
+	Post fetchPostsByDocumentId(Long documentId);
 }

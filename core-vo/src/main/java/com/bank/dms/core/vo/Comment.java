@@ -17,6 +17,25 @@ public class Comment implements Serializable {
 
 	private Post post;
 
+	public Comment() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Comment(String content, User createdBy, Post post) {
+		super();
+		this.content = content;
+		this.createdBy = createdBy;
+		this.post = post;
+	}
+
+	public Comment(Long id, String content, User createdBy, Post post) {
+		super();
+		this.id = id;
+		this.content = content;
+		this.createdBy = createdBy;
+		this.post = post;
+	}
+
 	public Long getId() {
 		return id;
 	}

@@ -1,6 +1,7 @@
 package com.bank.dms.dao.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -11,6 +12,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
@@ -38,6 +40,9 @@ public class Post implements Serializable {
 	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@JoinColumn(name = "DOCUMENT_ID", referencedColumnName = "ID")
 	private Document document;
+
+	@OneToMany(cascade = CascadeType.ALL, mappedBy = "post")
+	private List<Comment> comments;
 
 	public Post() {
 		// TODO Auto-generated constructor stub
@@ -88,5 +93,13 @@ public class Post implements Serializable {
 
 	public void setDocument(Document document) {
 		this.document = document;
+	}
+
+	public List<Comment> getComments() {
+		return comments;
+	}
+
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 }

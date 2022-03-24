@@ -1,7 +1,6 @@
 package com.bank.dms.dao.model;
 
 import java.io.Serializable;
-import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -12,7 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.SequenceGenerator;
 
 @Entity(name = "DMS_CUST_DOCUMENT")
@@ -44,9 +43,9 @@ public class Document implements Serializable {
 	@JoinColumn(name = "CUSTOMER_ID", referencedColumnName = "ID")
 	private Customer customer;
 
-	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-	@JoinColumn(name = "POST_ID", referencedColumnName = "ID")
-	private List<Post> post;
+	@OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+	@JoinColumn(name = "POST_ID", referencedColumnName = "ID", nullable = true)
+	private Post post;
 
 	public Document() {
 		// TODO Auto-generated constructor stub
@@ -118,11 +117,11 @@ public class Document implements Serializable {
 		this.customer = customer;
 	}
 
-	public List<Post> getPost() {
+	public Post getPost() {
 		return post;
 	}
 
-	public void setPost(List<Post> post) {
+	public void setPost(Post post) {
 		this.post = post;
 	}
 

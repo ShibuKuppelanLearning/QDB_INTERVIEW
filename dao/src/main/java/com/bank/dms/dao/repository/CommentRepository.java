@@ -7,5 +7,5 @@ import com.bank.dms.dao.model.Comment;
 
 @Repository
 public interface CommentRepository extends CrudRepository<Comment, Long> {
-
+	
 }
